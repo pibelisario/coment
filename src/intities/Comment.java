@@ -10,7 +10,6 @@ public class Comment {
 	}
 
 	public Comment(String text) {
-		super();
 		this.text = text;
 	}
 

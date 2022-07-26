@@ -12,29 +12,35 @@ public class Application {
 
 	public static void main(String[] args) throws ParseException {
 		
-		Scanner in = new Scanner(System.in);
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy HH:mm:ss");
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy HH:mm");
+		Comment comment1 = new Comment("Have a nice tripe");
+		Comment comment2 = new Comment("Wow tha's awesome");
 		
-		System.out.println("Moment: ");
-		Date moment = sdf.parse(in.next());
+		Post post = new Post(sdf.parse("21/06/2018 13:05:44"),
+				"Traveling to New Zealand",
+				"I'm going to visit this wonderful country!",
+				12);
+		post.addComment(comment1);
+		post.addComment(comment2);
 		
-		System.out.println("Title: ");
-		in.nextLine();
-		String title = in.nextLine();
+		System.out.println(post);
+		//------------------------------------//
+		System.out.println();
 		
-		System.out.println("Content: ");
-		in.nextLine();
-		String content = in.nextLine();
+		Post post2 = new Post(sdf.parse("28/08/2018 23:14:19"),
+				"Good night guys",
+				"See you tomorrow",
+				5);
 		
-		//Post post = new Post(moment, title, content);
+		Comment comment3 = new Comment("Good night");
+		Comment comment4 = new Comment("May the force be with you");
+	
+		post2.addComment(comment3);
+		post2.addComment(comment4);
 		
-		for (int i = 0; i < 2; i++) {
-			System.out.println("Comment " +(1+i)+": ");
-			in.nextLine();
-			String Comments = in.nextLine();
-		}
-
+		System.out.println(post2);
+		
+		
 	}
-
 }
